@@ -34,7 +34,7 @@
   (require 'org-bullets)  ; Nicer bullets in org-mode
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   (setq org-directory "~/Org/"
-        org-agenda-files '("~/Org/agenda.org")
+        org-agenda-files '("~/Org/fortnox-notes" "~/Org/journal")
         org-default-notes-file (expand-file-name "notes.org" org-directory)
         org-ellipsis " ▼ "
         org-log-done 'time
@@ -45,6 +45,18 @@
   )
 ) ; Task has been cancelled
 
+(after! org (setq org-publish-project-alist
+		  '(("notes"
+		     :base-directory "~/Org/fortnox-notes"
+		     :base-extension "org"
+		     :publishing-directory "~/Org/public"
+		     :with-toc t
+		     :recursive t
+		     :auto-sitemap t
+		     :publishing-function org-html-publish-to-html
+		     :auto-preamble t
+		     )
+		    ("fortnox" :components("notes")))))
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)

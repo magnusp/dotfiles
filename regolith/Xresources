@@ -1,2 +1,4 @@
 i3-wm.program.notifications: /usr/bin/dunst
-gnome.terminal.font:	JetBrains Mono 24
+gnome.terminal.font:	JetBrains Mono 9
+i3-wm.font: pango:JetBrains Mono 9
+i3-wm.bar.font: pango:JetBrains Mono 9
